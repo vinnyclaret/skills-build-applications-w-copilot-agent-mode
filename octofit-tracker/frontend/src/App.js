@@ -1,12 +1,15 @@
+
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="container py-4">
       {/* Navigation */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4 rounded">
-        <a className="navbar-brand" href="#">
+  <a className="navbar-brand" href="/">
           <img src={logo} alt="OctoFit" width="40" height="40" className="d-inline-block align-top me-2" />
           OctoFit Tracker
         </a>
@@ -15,10 +18,10 @@ function App() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item"><a className="nav-link active" href="#">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Activities</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Teams</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Leaderboard</a></li>
+            <li className="nav-item"><a className="nav-link active" href="/">Home</a></li>
+            <li className="nav-item"><a className="nav-link" href="/activities">Activities</a></li>
+            <li className="nav-item"><a className="nav-link" href="/teams">Teams</a></li>
+            <li className="nav-item"><a className="nav-link" href="/leaderboard">Leaderboard</a></li>
           </ul>
         </div>
       </nav>
