@@ -6,6 +6,7 @@ from octofit_tracker import models as octo_models
 class Command(BaseCommand):
     help = 'Populate the octofit_db database with test data'
 
+
     def handle(self, *args, **options):
         # Delete existing data
         get_user_model().objects.all().delete()
@@ -19,8 +20,12 @@ class Command(BaseCommand):
         dc = octo_models.Team.objects.create(name='DC')
 
         # Create users
-        ironman = get_user_model().objects.create_user(username='ironman', email='ironman@marvel.com', password='password', team=marvel)
-        batman = get_user_model().objects.create_user(username='batman', email='batman@dc.com', password='password', team=dc)
+        ironman = get_user_model().objects.create_user(username='ironman', email='ironman@marvel.com', password='password')
+        batman = get_user_model().objects.create_user(username='batman', email='batman@dc.com', password='password')
+
+        # Associate users with teams via UserProfile
+        octo_models.UserProfile.objects.create(user=ironman, team=marvel)
+        octo_models.UserProfile.objects.create(user=batman, team=dc)
 
         # Create activities
         octo_models.Activity.objects.create(user=ironman, type='run', duration=30)
