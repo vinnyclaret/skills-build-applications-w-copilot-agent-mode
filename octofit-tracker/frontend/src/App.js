@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import octofitLogo from '../public/octofitapp-small.svg';
+
 import './App.css';
 import Activities from './components/Activities';
 import Teams from './components/Teams';
@@ -18,7 +18,7 @@ function App() {
         {/* Navigation */}
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4 rounded">
           <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img src={octofitLogo} alt="OctoFit" className="octofitapp-logo" />
+            <img src={process.env.PUBLIC_URL + '/octofitapp-small.svg'} alt="OctoFit" className="octofitapp-logo" />
             <span className="ms-2">OctoFit Tracker</span>
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
